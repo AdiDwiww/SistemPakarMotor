@@ -1,0 +1,180 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --blue:#2563eb;--blue-l:#eff6ff;--blue-m:#bfdbfe;
+  --green:#16a34a;--green-l:#dcfce7;--green-b:#86efac;
+  --amber:#d97706;--amber-l:#fff7ed;--amber-b:#fed7aa;
+  --red:#dc2626;--red-l:#fee2e2;--red-b:#fca5a5;
+  --gray-50:#f8fafc;--gray-100:#f1f5f9;--gray-200:#e2e8f0;
+  --gray-400:#94a3b8;--gray-500:#64748b;--gray-700:#334155;--gray-900:#0f172a;
+  --shadow-sm:0 1px 4px rgba(0,0,0,.06);
+  --shadow-md:0 4px 16px rgba(0,0,0,.08);
+  --shadow-lg:0 10px 30px rgba(0,0,0,.1);
+  --r-sm:12px;--r-md:18px;--r-lg:24px;--r-xl:32px;
+}
+body { font-family:'Inter',sans-serif; background:var(--gray-100); color:var(--gray-900); min-height:100vh; }
+
+/* ── APP SHELL ── */
+.app-wrap { min-height:100vh; background:var(--gray-100); padding:20px 16px 48px; }
+.app-inner { max-width:480px; margin:0 auto; }
+
+/* ── HEADER ── */
+.app-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
+.app-brand  { display:flex; align-items:center; gap:10px; }
+.brand-logo { width:40px;height:40px; background:linear-gradient(135deg,var(--blue),#1d4ed8); border-radius:12px;
+              display:flex;align-items:center;justify-content:center; box-shadow:0 4px 12px rgba(37,99,235,.3); }
+.brand-name { font-size:20px;font-weight:900;letter-spacing:-.5px;
+              background:linear-gradient(135deg,var(--blue),#1d4ed8);
+              -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+.brand-sub  { font-size:11px;color:var(--gray-400);font-weight:500;margin-top:1px; }
+
+/* ── STEP PILLS ── */
+.steps { display:flex; gap:8px; margin-bottom:20px; }
+.step-pill { flex:1; padding:10px 8px; border-radius:var(--r-md); display:flex; align-items:center; gap:7px;
+             font-weight:700; font-size:12px; transition:all .3s; }
+.step-pill.done   { background:var(--green); color:#fff; }
+.step-pill.active { background:var(--blue);  color:#fff; box-shadow:0 4px 12px rgba(37,99,235,.3); }
+.step-pill.idle   { background:#fff; color:var(--gray-400); border:1.5px solid var(--gray-200); }
+.step-num { width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+            font-size:11px;font-weight:800;flex-shrink:0;background:rgba(255,255,255,.25); }
+.step-pill.idle .step-num { background:var(--gray-100);color:var(--gray-500); }
+
+/* ── CARD ── */
+.card { background:#fff;border-radius:var(--r-xl);padding:24px;box-shadow:var(--shadow-md);border:1px solid rgba(0,0,0,.04); }
+.section-title { font-size:19px;font-weight:800;margin-bottom:20px; }
+
+/* ── FORM ── */
+.form-stack { display:flex;flex-direction:column;gap:16px; }
+.fg { display:flex;flex-direction:column;gap:6px; }
+.fg label { font-weight:700;font-size:13px;color:var(--gray-700); }
+.fg small  { font-size:11px;color:var(--gray-400); }
+.inp { width:100%;padding:12px 14px;border:1.5px solid var(--gray-200);border-radius:var(--r-sm);
+       font-size:14px;font-family:inherit;color:var(--gray-900);background:#fff;outline:none;transition:.2s; }
+.inp:focus { border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.1); }
+.fg-row { display:grid;grid-template-columns:1fr 1fr;gap:12px; }
+
+/* ── KONDISI BUTTONS ── */
+.cond-grid { display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px; }
+.cond-btn { padding:12px 10px;border-radius:var(--r-sm);border:1.5px solid var(--gray-200);
+            background:#fff;cursor:pointer;font-family:inherit;text-align:left;transition:.2s; }
+.cond-btn.sel { border-color:var(--blue);background:var(--blue-l); }
+.cond-title { font-weight:700;font-size:13px;color:var(--gray-900); }
+.cond-btn.sel .cond-title { color:var(--blue); }
+.cond-desc  { font-size:11px;color:var(--gray-500);margin-top:3px;line-height:1.4; }
+
+/* ── ACTION BUTTONS ── */
+.btn-row { display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:20px; }
+.btn-p { background:linear-gradient(135deg,var(--blue),#1d4ed8);color:#fff;border:none;
+          padding:14px 20px;border-radius:var(--r-md);font-weight:800;font-size:14px;cursor:pointer;font-family:inherit;
+          box-shadow:0 4px 12px rgba(37,99,235,.3);transition:.2s; }
+.btn-p:hover { transform:translateY(-1px);box-shadow:0 6px 18px rgba(37,99,235,.4); }
+.btn-s { background:#fff;color:var(--gray-700);border:1.5px solid var(--gray-200);
+          padding:14px 20px;border-radius:var(--r-md);font-weight:700;font-size:14px;cursor:pointer;font-family:inherit;transition:.2s; }
+.btn-s:hover { border-color:var(--gray-400); }
+.btn-g { background:linear-gradient(135deg,var(--green),#15803d);color:#fff;border:none;
+          padding:14px 20px;border-radius:var(--r-md);font-weight:800;font-size:14px;cursor:pointer;font-family:inherit;
+          box-shadow:0 4px 12px rgba(22,163,74,.3);transition:.2s;display:flex;align-items:center;justify-content:center;gap:8px; }
+.btn-g:hover { transform:translateY(-1px); }
+
+/* ── METODE PILLS ── */
+.met-row { display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px; }
+.met-btn { padding:9px 6px;border-radius:var(--r-sm);border:1.5px solid var(--gray-200);
+           background:#fff;cursor:pointer;font-weight:600;font-size:12px;color:var(--gray-700);
+           text-align:center;transition:.2s;font-family:inherit; }
+.met-btn.sel { border-color:var(--blue);background:var(--blue-l);color:var(--blue); }
+.warn-box { background:#fff7ed;border:1px solid var(--amber-b);border-radius:var(--r-sm);padding:12px;
+            color:#92400e;font-size:13px;line-height:1.5; }
+
+/* ── KOMP CARD (step 2) ── */
+.komp-card { background:#fff;border-radius:var(--r-lg);padding:18px;box-shadow:var(--shadow-sm);
+             border:1.5px solid var(--gray-200);margin-bottom:12px; }
+.komp-hd   { display:flex;align-items:center;gap:12px;margin-bottom:14px; }
+.komp-ico  { width:42px;height:42px;border-radius:12px;background:var(--gray-100);
+             display:flex;align-items:center;justify-content:center;color:var(--gray-500);flex-shrink:0; }
+.komp-name { font-weight:800;font-size:15px; }
+.komp-sub  { font-size:12px;color:var(--gray-400);margin-top:2px; }
+
+/* ── ODOMETER CARD ── */
+.odo-card { background:#fff;border-radius:var(--r-xl);padding:20px;box-shadow:var(--shadow-md);margin-bottom:12px; }
+.odo-top  { display:flex;align-items:center;justify-content:space-between;margin-bottom:12px; }
+.odo-motor{ font-size:16px;font-weight:800;display:flex;align-items:center;gap:6px; }
+.odo-tags { display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px; }
+.odo-tag  { padding:4px 10px;border-radius:999px;font-size:11px;font-weight:700; }
+.tag-km   { background:var(--green-l);color:var(--green); }
+.tag-cond { background:var(--amber-l);color:var(--amber); }
+.tag-cond.normal { background:var(--blue-l);color:var(--blue); }
+.odo-val  { font-size:32px;font-weight:900;letter-spacing:-1px;display:flex;align-items:center;gap:8px; }
+.odo-unit { font-size:16px;font-weight:600;color:var(--gray-400); }
+
+/* ── STATUS BANNER ── */
+.banner       { border-radius:var(--r-lg);padding:0;overflow:hidden;margin-bottom:16px;box-shadow:var(--shadow-sm); }
+.banner-head  { padding:8px 16px;font-size:11px;font-weight:800;letter-spacing:.8px;text-align:center; }
+.banner-body  { padding:12px 16px;display:flex;align-items:center;gap:10px;font-weight:600;font-size:14px; }
+.banner.good  .banner-head { background:var(--blue);color:#fff; }
+.banner.good  .banner-body { background:#fff;color:var(--gray-700); }
+.banner.warn  .banner-head { background:#f97316;color:#fff; }
+.banner.warn  .banner-body { background:#fff7ed;color:#9a3412;border:1.5px solid var(--amber-b);border-top:none;border-radius:0 0 var(--r-lg) var(--r-lg); }
+.banner.crit  .banner-head { background:var(--red);color:#fff; }
+.banner.crit  .banner-body { background:var(--red-l);color:#991b1b;border:1.5px solid var(--red-b);border-top:none;border-radius:0 0 var(--r-lg) var(--r-lg); }
+
+/* ── SUMMARY PILLS ── */
+.summ-row { display:flex;gap:8px;margin-bottom:16px; }
+.summ-pill { flex:1;background:#fff;border-radius:var(--r-md);padding:12px 8px;text-align:center;box-shadow:var(--shadow-sm);border:1.5px solid var(--gray-200); }
+.summ-val  { font-size:24px;font-weight:900; }
+.summ-lbl  { font-size:10px;font-weight:700;color:var(--gray-500);margin-top:2px;letter-spacing:.4px; }
+
+/* ── COMP SECTION ── */
+.comp-section-hd { display:flex;align-items:center;justify-content:space-between;margin-bottom:12px; }
+.comp-section-title { font-size:17px;font-weight:800; }
+
+/* ── COMP GRID ── */
+.comp-grid { display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px; }
+.comp-card { background:#fff;border-radius:var(--r-lg);padding:14px;cursor:pointer;
+             transition:box-shadow .2s,transform .2s;border:1.5px solid var(--gray-200);position:relative;overflow:hidden; }
+.comp-card:hover { box-shadow:var(--shadow-lg);transform:translateY(-2px); }
+.comp-card.open  { box-shadow:var(--shadow-lg); }
+.comp-card-hd    { display:flex;align-items:center;gap:6px;margin-bottom:10px; }
+.comp-status-ico { flex-shrink:0; }
+.comp-card-name  { font-weight:700;font-size:13px;color:var(--gray-900);line-height:1.3; }
+.comp-illus-wrap { display:flex;align-items:center;justify-content:center;height:70px;margin-bottom:10px; }
+.comp-km-left    { font-size:14px;font-weight:800;margin-bottom:2px; }
+.comp-est        { font-size:11px;color:var(--gray-400);font-weight:500; }
+.comp-expand     { margin-top:12px;padding-top:12px;border-top:1px solid var(--gray-100);font-size:13px;color:var(--gray-700);line-height:1.6; }
+.comp-expand-grid{ display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px; }
+.mini-info       { background:var(--gray-50);border:1px solid var(--gray-200);border-radius:10px;padding:10px; }
+.mini-info-label { font-size:10px;color:var(--gray-400);font-weight:700;letter-spacing:.4px;margin-bottom:4px; }
+.mini-info-val   { font-size:14px;font-weight:800; }
+
+/* ── PROGRESS BAR ── */
+.pbar-wrap { width:100%;height:5px;background:var(--gray-100);border-radius:999px;overflow:hidden;margin-top:6px; }
+.pbar-fill  { height:100%;border-radius:999px;transition:width .5s ease; }
+
+@media (max-width:400px) {
+  .comp-grid { grid-template-columns:1fr; }
+  .fg-row    { grid-template-columns:1fr; }
+}
+
+/* ── FORM GRID 4 (2x2 sejajar) ── */
+.form-grid-4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 12px;
+  align-items: start;
+}
+
+/* ── SUBMIT STATUS ── */
+.submit-status {
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  text-align: center;
+}
+.submit-status.sending { background: #f1f5f9; color: #64748b; }
+.submit-status.ok      { background: #dcfce7; color: #16a34a; border: 1px solid #86efac; }
+.submit-status.err     { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+
+@media (max-width: 400px) {
+  .form-grid-4 { grid-template-columns: 1fr; }
+}
